@@ -1,7 +1,7 @@
 const express = require('express');
 var bodyParser = require('body-parser');
 const mongoose=require('mongoose')
-const route = require('./routes/route.js');
+const route = require('./routes/route');
 
 const app = express();
 
@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-mongoose.connect("mongodb+srv://Yogesh_Mjs:U9bUHeuLxXaOhj4j@cluster0.8e1bd.mongodb.net/Yogesh_Mjs_DB?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://Shrikantkhare1:Shrikant@cluster0.qch0g.mongodb.net/project2?retryWrites=true&w=majority", {
     useNewUrlParser: true
 
 })

@@ -1,26 +1,21 @@
 const express = require('express');
 const router = express.Router();
+const CollegeController = require('../controller/collegecontroller')
+const InternController = require('../controller/interncontroller')
 
-
-
-router.get("/test-me", function (req, res) {
-    res.send("My first ever api!")
+// test API
+router.get('/test', function(req, res){
+    res.status(200).send({status: true, message: "test api working fine"})
 })
 
-const AuthorController = require("../Controller/AuthorController")
-router.post("/CreateAuthor", AuthorController.CreateAuthor)
-router.post("/AuthorLogin", AuthorController.Authorlogin)
+// new college entry
+router.post('/functionup/colleges', CollegeController.createCollege)
 
+// get college details
+router.get('/functionup/collegeDetails', CollegeController.getCollegeDetails)
 
-const BlogController = require("../Controller/BlogController")
-const MiddleWare = require("../MiddleWare/auth")
-router.post("/CreateBlog", MiddleWare.authenticate, BlogController.CreateBlog)
-router.get("/getBlog", MiddleWare.authenticate, BlogController.getBlog)
-router.put("/Updateblogs/:blogId", MiddleWare.authenticate, MiddleWare.authorise, BlogController.UpdateBlog)
-router.delete("/blogs/:blogId", MiddleWare.authenticate, MiddleWare.authorise, BlogController.DeleteBlogbypathparam)
-router.delete("/DeleteBlogs", MiddleWare.authenticate, MiddleWare.verifyAuthorId,BlogController.DeleteBlogbyqueryparam)
-
-
+// new intern entry
+router.post('/functionup/interns', InternController.createIntern )
 
 
 
