@@ -8,7 +8,7 @@ const emailValidation = function(email){
 }
 const mobileValidation = function(mobile){
     let regexForMobile = /^[6-9]\d{9}$/ 
-    return regexForMobile.test(mobile)
+    return regexForMobile.test(mobile) 
 }
 
 const internSchema = new mongoose.Schema({
